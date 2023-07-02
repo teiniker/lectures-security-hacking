@@ -21,3 +21,5 @@ Excerpt from the CWE/SANS TOP 25 Most Dangerous Software Errors list (with focus
 ## References
 
 * [CWE/SANS TOP 25 Most Dangerous Software Errors](https://www.sans.org/top25-software-errors/)
+* [CWE Most Important Hardware Weaknesses](https://cwe.mitre.org/scoring/lists/2021_CWE_MIHW.html)
+  
