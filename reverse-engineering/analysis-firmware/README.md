@@ -1,4 +1,4 @@
-# IoT Reverse Engineering
+# Firmware Analysis
 
 The aim of this introduction is to show how firmware can be analyzed.
 
