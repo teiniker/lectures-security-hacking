@@ -9,19 +9,21 @@ The following topics will be covered:
 * **Ethical Hacking** 
     * [Introduction](exploits/introduction/)
     * Security Testing
-        * C/C++ Environment
-            * [Memory Management](reverse-engineering/memory/)
-            * [Strings in C](exploits/c-strings/)
-            * [Function Calls](exploits/function-calls/)
-        * C/C++ Exploits
-            * [Format String Attack](exploits/format-string/)
-            * [Buffer Overflow](exploits/buffer-overflow/)
+        * Environment
+            * [Introduction](exploits/environment/introduction/)
+            * [Memory Management](exploits/environment/memory/)
+        * Exploits
+            * C-String Attacks 
+                * [Format String](exploits/c-string-attacks/format-string/)
+                * [Buffer Overflow ](exploits/c-string-attacks/buffer-overflow/)
             * Path Traversal
-            * OS Command Injection
+            * [OS Command Injection](exploits/command-injection/)
+
     * Reverse Engineering   
         * [Static Analysis](reverse-engineering/analysis-static/)
         * [Dynamic Analysis](reverse-engineering/analysis-dynamic/)
         * [Firmware Analysis](reverse-engineering/analysis-firmware/)
+    
     * Hardware Hacking
 
 * **Secure Software Development**
