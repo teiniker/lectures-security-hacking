@@ -162,4 +162,4 @@ Finally, we can **analyze binaries** to find hard coded secrets and interesting 
 
 
 
-*Egon Teiniker, 2020-2022, GPL v3.0*
+*Egon Teiniker, 2023, GPL v3.0*
