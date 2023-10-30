@@ -77,6 +77,8 @@ Finally, we can **analyze binaries** to find hard coded secrets and interesting 
 
 
 ## References
+* [OWASP Firmware Security Testing Methodology](https://scriptingxss.gitbook.io/firmware-security-testing-methodology/)
+
 * [Reverse Engineering the TP-Link HS110](https://www.softscheck.com/en/reverse-engineering-tp-link-hs110/)
 * [YouTube: Simple Firmware Reverse Engineering](https://youtu.be/oqk3cU7ekag)
 * [YouTube: IoT Firmware Analysis](https://youtu.be/bwZlwIOMkJE)
