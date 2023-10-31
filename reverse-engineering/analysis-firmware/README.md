@@ -24,7 +24,15 @@ We download the [firmware](https://github.com/OWASP/IoTGoat/releases) from GitHu
 Download: IoTGoat-x86.img.gz
 
 $ gunzip IoTGoat-x86.img.gz
+```
 
+
+### binwalk
+
+Binwalk is a fast, easy to use tool for analyzing, reverse engineering, 
+and extracting firmware images.
+
+```
 $ binwalk -e IoTGoat-x86.img 
 DECIMAL       HEXADECIMAL     DESCRIPTION
 --------------------------------------------------------------------------------
@@ -61,6 +69,10 @@ d/squashfs-root/etc/shadow
 ...
 ```
 
+An interesting resource is the `/etc/shadow` file, in which user names 
+and passwords (encrypted) are stored under Linux.
+
+_Example_: Read `/etc/shadow` file
 ```
 $ less _IoTGoat-x86.img.extracted/squashfs-root/etc/shadow
 root:$1$Jl7H1VOG$Wgw2F/C.nLNTC.4pwDa4H1:18145:0:99999:7:::
@@ -73,7 +85,21 @@ dnsmasq:x:0:0:99999:7:::
 iotgoatuser:$1$79bz0K8z$Ii6Q/if83F1QodGmkb4Ah.:18145:0:99999:7:::
 ```
 
-Finally, we can **analyze binaries** to find hard coded secrets and interesting vulnerabilities.
+
+Another source of data are **SQLite database files**. 
+They often contain large amounts of data.
+
+_Example_: Read SQLite database file
+* Start the **DB Browser for SQLite**
+* Loaf the following file: 
+```
+    squashfs-root/usr/lib/lua/luci/controller/iotgoat/sensordata.db
+```
+* Review the database table and its data.
+
+
+Finally, we can **analyze binaries using Ghidra** to find hard coded secrets and 
+interesting vulnerabilities.
 
 
 ## References
