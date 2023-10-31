@@ -26,7 +26,6 @@ Download: IoTGoat-x86.img.gz
 $ gunzip IoTGoat-x86.img.gz
 ```
 
-
 ### binwalk
 
 Binwalk is a fast, easy to use tool for analyzing, reverse engineering, 
