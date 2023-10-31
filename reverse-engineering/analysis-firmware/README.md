@@ -84,17 +84,34 @@ dnsmasq:x:0:0:99999:7:::
 iotgoatuser:$1$79bz0K8z$Ii6Q/if83F1QodGmkb4Ah.:18145:0:99999:7:::
 ```
 
-
 Another source of data are **SQLite database files**. 
 They often contain large amounts of data.
 
 _Example_: Read SQLite database file
 * Start the **DB Browser for SQLite**
-* Loaf the following file: 
-```
-    squashfs-root/usr/lib/lua/luci/controller/iotgoat/sensordata.db
-```
+* Load the following file: `squashfs-root/usr/lib/lua/luci/controller/iotgoat/sensordata.db`
 * Review the database table and its data.
+
+* Alternative, we can use the **sqlite3 command line tool**:
+    ```
+    $ sqlite3 sensordata.db 
+    SQLite version 3.42.0 2023-05-16 12:36:15
+    Enter ".help" for usage hints.
+    sqlite> .dump
+    PRAGMA foreign_keys=OFF;
+    BEGIN TRANSACTION;
+    CREATE TABLE sensors(id INTEGER PRIMARY KEY AUTOINCREMENT, temperature NUMERIC, humidity NUMERIC, currentdate DATE, currentime TIME, name TEXT, email TEXT, birthdate NUMERIC);
+    INSERT INTO sensors VALUES(1,22.399999999999998579,68,'2020-03-24','18:56:33','johnsmith','johnsmith@gmail.com',1311977);
+    INSERT INTO sensors VALUES(2,29.699999999999999289,98,'2020-03-24','18:56:43','jillsmith','jillsmith@gmail.com',4141979);
+    INSERT INTO sensors VALUES(3,31.199999999999999289,28,'2020-03-24','18:57:05','walter','waltergary@yopmail.com',32821969);
+    INSERT INTO sensors VALUES(4,16.899999999999998578,38,'2020-03-24','18:57:20','WilliamRonald','billronald@yopmail.com',11141989);
+    INSERT INTO sensors VALUES(5,35,78,'2020-03-24','18:58:04','Test','TstUser@aol.com',12121990);
+    INSERT INTO sensors VALUES(6,35,88,'2020-03-24','18:58:18','Sgt','sgtmajor@us.gov',10171956);
+    DELETE FROM sqlite_sequence;
+    INSERT INTO sqlite_sequence VALUES('sensors',6);
+    COMMIT;
+    sqlite> .quit
+    ```
 
 
 Finally, we can **analyze binaries using Ghidra** to find hard coded secrets and 
