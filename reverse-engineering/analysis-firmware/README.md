@@ -47,7 +47,7 @@ It is not uncommon that IoT Devices run a Linux system because the need a WiFi n
 Within the extracted Linux filesystem, we can look for interesting files...
 
 
-### Firmwalker
+### firmwalker
 
 A simple bash script for searching the extracted or mounted firmware file system is called 
 [firmwalker](https://github.com/craigz28/firmwalker).
