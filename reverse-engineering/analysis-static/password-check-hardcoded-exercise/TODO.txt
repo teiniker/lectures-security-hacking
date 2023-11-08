@@ -20,3 +20,6 @@ Describe the algorithm which has been used to build the password:
 
     TODO: Description
 
+C) Dynamic Analysis 
+Use a dynamic analysis technique to retrieve the password from the 
+binary.

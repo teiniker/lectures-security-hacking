@@ -20,6 +20,9 @@ char *secret(void)
 
 bool validate(char* password)
 {
+    if(strlen(password) != len())
+        return false;
+        
     if(strncmp(secret()+10, password, len()) == 0)
         return true;
     else 

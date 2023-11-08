@@ -7,7 +7,7 @@ $ ./password_check
 password> student
 Login rejected, invalid password!
 
-A) Extract Password [3 points] 
+A) Extract Password  
 Use static reverse engineering techniques to extract the hardcoded password.
 Try to login with the found password - only when you see the following message, 
 you have extracted the right password:
@@ -16,31 +16,30 @@ you have extracted the right password:
     TODO: "hjHGzu&56nm;"
 
 
-B) Storage Algorithm [7 points]
+B) Storage Algorithm 
 Describe the algorithm which has been used to build the password:
 
     TODO: 
-    i) iteral="VvnoWnioi8hjHGzu&56nm;:mkhjghfg"
-    ii) substring: 
+    i) password length must be 6*2 characters 
+    ii) iteral="VvnoWnioi8hjHGzu&56nm;:mkhjghfg"
+    iii) substring: 
         starting with: literal+10
         length:6*2
         => hjHGzu&56nm;
-    iii) compare this substring with the entered password
+    iv) compare this substring with the entered password
         
+C) Dynamic Analysis 
+Using ltrace, we can see the comparison between the entered password 
+and the hardcoded one.
+Note that this only works if we find out the right length of the 
+password first (static analysis).
 
-
-The small print
----------------
-
-1. Project name: Rename the project (and the submitted ZIP file) so 
-that instead of "MyName" your name is used. 
-Please note that projects that do not comply with the naming 
-convention will be deducted 50% of the points!
-
-2. Manual review: A manual code review is performed for each solution 
-when grading. 
-
-3. Compiler errors: Implementations that don't compile won't count.
-
-4. Solutions that are obviously copied or copied will be assessed 
-negatively (with 0 points).
+$ ltrace ./password_check 
+printf("password> ")                                                  = 10
+__isoc99_scanf(0x402033, 0x7ffc22428a20, 0, 0password> xxxxxxxxxxxx
+)                        = 1
+strlen("xxxxxxxxxxxx")                                                = 12
+strncmp("hjHGzu&56nm;:mkhjghfg", "xxxxxxxxxxxx", 12)                  = -16
+puts("Login rejected, invalid password"...Login rejected, invalid password!
+)                           = 34
++++ exited (status 0) +++
