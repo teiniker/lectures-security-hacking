@@ -16,8 +16,9 @@ The following topics will be covered:
             * C-String Attacks 
                 * [Format String](exploits/c-string-attacks/format-string/)
                 * [Buffer Overflow ](exploits/c-string-attacks/buffer-overflow/)
-            * Path Traversal
             * [OS Command Injection](exploits/command-injection/)
+            * [Path Traversal](exploits/file-handling/)
+            * [SQL Processing](exploits/sql-processing/)
 
     * Reverse Engineering   
         * [Static Analysis](reverse-engineering/analysis-static/)
