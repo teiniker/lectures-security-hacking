@@ -4,6 +4,8 @@ To use the SQLite3 database, the following packages must be installed (already p
 
 ```
 $ sudo apt install sqlite3
+$ sudo apt install libsqlite3-dev
+
 $ sudo apt install sqlitebrowser    
 ```
 
