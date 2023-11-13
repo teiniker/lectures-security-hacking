@@ -6,16 +6,18 @@ manufacturer.
 
 We explore the most basic hardware hacking techniques, including interfacing with UART, I2C, SPI, and JTAG:
 
+* [Universal Serial Bus (USB)](usb/)
 * [Universal Asynchronous Receiver-Transmitter (UART)](uart/)
 * [Inter-Integrated Circuit (I2C)](i2c/)
 * [Serial Peripheral Interface (SPI)](spi/)
 * [Joint Test Action Group (JTAG)](jtag/)
 
+
 Tools needed for hardware hacking:
 
+* [Logic Analyzer](tools/LogicAnalyzer/)
 * [USB-TTL-Serial-Adapter](tools/USB-TTL-Adapter/)
 * [Bus Pirate ](tools/BusPirate/)
-* [Logic Analyzer](tools/LogicAnalyzer/)
 * [ISP-Programmer](tools/ISP-Programmer/)
 
 
