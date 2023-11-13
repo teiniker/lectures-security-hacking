@@ -14,8 +14,6 @@ interface (UART) to a USB interface, for example to your PC.
 * The logic level can be adjusted using the jumper on the board.
 
 ## References
-* [FT232-AZ USB zu TTL Serial Adapter für 3,3V und 5V](https://www.az-delivery.de/products/ftdi-adapter-ft232rl)
-
 * [YouTube: FTDI FT232RL USB to Serial Module (AZ-Delivery) Detailed Review](https://youtu.be/27zx9MMKbAE?si=5xFWigmY94LVumYs)
 
 * [YouTube: FTDI USB to Serial Adapter Demo](https://youtu.be/7yhgYJe2ShM?si=NMPeUxlEt2oTpLrQ)
