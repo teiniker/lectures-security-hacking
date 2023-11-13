@@ -27,6 +27,7 @@ Tools needed for hardware hacking:
     **Practical IoT Hacking: The Definitive Guide to Attacking the Internet of Things.**
     No Starch Press, 2021. 
 
+* Aaron Guzman, Aditya Gupta. **IoT Penetration Testing - Cookbook**. Packt Publishing, 2017.
 
 
 *Egon Teiniker, 2023, GPL v3.0* 
