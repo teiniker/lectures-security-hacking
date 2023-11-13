@@ -3,6 +3,8 @@
 The USB-TTL-Serial adapter is used to connect a device with a serial 
 interface (UART) to a USB interface, for example to your PC.
 
+![USB-to-TTL](usb2ttl.png)
+
 * Enables a UART data connection between a PC and other hardware that 
     does not have its own USB converter.
 
