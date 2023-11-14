@@ -35,15 +35,18 @@ hardware protocols as SPI, I2C and 1-Wire.
 ## Protocols (bus modes)
 
 * 1-Wire
-* I2C (I2C implementation does not currently support clock stretching.)
-* SPI
-* JTAG
-* Asynchronous serial
+* [UART](http://dangerousprototypes.com/docs/UART)
+* [I2C](http://dangerousprototypes.com/docs/I2C) 
+* [SPI](http://dangerousprototypes.com/docs/SPI_(binary))
+* [JTAG](http://dangerousprototypes.com/docs/JTAG)
+* [HD44780 LCD](http://dangerousprototypes.com/docs/HD44780_LCDs)
 * MIDI
 * PC keyboard
-* HD44780 LCD
 * 2- and 3-wire libraries with bitwise pin control
 * Scriptable binary bitbang, 1-Wire, I2C, SPI, and UART modes
+
+![Output Pins](BusPirate-Outputs.png)
+![Output Pin Colors](BusPirate-Output-Colors.png)
 
 # Tutorials 
 * [Bus Pirate 101 tutorial](http://dangerousprototypes.com/docs/Bus_Pirate_101_tutorial)
