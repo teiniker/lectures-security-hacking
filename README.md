@@ -25,7 +25,8 @@ The following topics will be covered:
         * [Dynamic Analysis](reverse-engineering/analysis-dynamic/)
         * [Firmware Analysis](reverse-engineering/analysis-firmware/)
     
-    * Hardware Hacking
+    * [Hardware Hacking](hardware-hacking/)
+        
 
 * **Secure Software Development**
     * [Introduction](secure-coding/introduction/) 
