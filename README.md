@@ -9,9 +9,6 @@ The following topics will be covered:
 * **Ethical Hacking** 
     * [Introduction](exploits/introduction/)
     * Security Testing
-        * Environment
-            * [Introduction](exploits/environment/introduction/)
-            * [Memory Management](exploits/environment/memory/)
         * Exploits
             * C-String Attacks 
                 * [Format String](exploits/c-string-attacks/format-string/)
@@ -20,21 +17,24 @@ The following topics will be covered:
             * [File Handling](exploits/file-handling/)
             * [SQL Processing](exploits/sql-processing/)
 
-    * Reverse Engineering   
-        * [Static Analysis](reverse-engineering/analysis-static/)
-        * [Dynamic Analysis](reverse-engineering/analysis-dynamic/)
-        * [Firmware Analysis](reverse-engineering/analysis-firmware/)
-    
-    * [Hardware Hacking](hardware-hacking/)
+        * Reverse Engineering   
+            * [Static Analysis](reverse-engineering/analysis-static/)
+            * [Dynamic Analysis](reverse-engineering/analysis-dynamic/)
+            * [Firmware Analysis](reverse-engineering/analysis-firmware/)
+        
+        * [Hardware Hacking](hardware-hacking/)
         
 
 * **Secure Software Development**
     * [Introduction](secure-coding/introduction/) 
+
     * Secure Coding
-        * [Data Representation](secure-coding/representation/)
+        * Environment
+            * [Introduction](secure-coding/environment/introduction/)
+            * [Memory Management](secure-coding/environment/memory/)
         * [Input Validation](secure-coding/input-validation/)
-        * [Output Encoding](secure-coding/output-encoding/)
         * [Error Handling](secure-coding/error-handling/)   
+        
     * Cryptography in Practice
         * [OpenSSL](cryptography/openssl/)
         * [Random Numbers](cryptography/random-numbers/)
