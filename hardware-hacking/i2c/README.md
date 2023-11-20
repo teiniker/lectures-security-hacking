@@ -111,7 +111,7 @@ to analyze and attack I2C communications:
     
 
 ## References
-* [YouTube: What is I2C, Basics for Beginners](https://youtu.be/jFtr0Ha5f-c?si=54965hf-T_ApgUZy)
+* [Understanding I2C](https://youtu.be/CAvawEcxoPU?si=Y2KmSyu_H8-EsLuI)
 
 * [I2C-Bus](https://www.i2c-bus.org/)
 
