@@ -84,7 +84,31 @@ dnsmasq:x:0:0:99999:7:::
 iotgoatuser:$1$79bz0K8z$Ii6Q/if83F1QodGmkb4Ah.:18145:0:99999:7:::
 ```
 
-Another source of data are **SQLite database files**. 
+
+### Important Files in the Linux Filesystems 
+
+Here’s a short list of key configuration files and directories in Linux that attackers love to get their hands on:
+
+* There are lots of places in the Linux startup process where we can insert malicious commands 
+	or scripts such as in in the boot loader (e.g. GRUB or LILO), Kernel parameters in `/proc/cmdline`, daemons and services in `/etc/system.d`, run commands in `/etc/rc.*` and 
+    `/etc/init.*`.
+* We can also set up scripts to run as cron jobs. But there are other crafty ways to cause 
+    scripts to run with whenever a shell starts. For instance, with Bash, you need to watch 
+    `/etc/profile`, `~/.bash_profile`, `~/.bash_login`, `~/.profile`, `/home/user/.bashrc`, 
+    `/etc/bash.bashrc`, `/etc/profile.d/`.
+* We can override DNS and cause your system to communicate with imposter systems by messing 
+    with files like `/etc/hosts` and `/etc/resolv.conf`.
+* Changes to `/etc/passwd`, `/etc/shadow`, `/etc/group`, `/etc/gshadow` are all super 
+    important to monitor because this is where user accounts, groups and password hashes 
+    are stored. 
+	Related to that are files under `/etc/pam.d` where password and lockout policies are 
+    stored and where sophisticated attackers can install bogus pluggable authentication 
+    modules that steal passwords.
+
+
+### Database Files 
+
+Another important source of data are **SQLite database files**. 
 They often contain large amounts of data.
 
 _Example_: Read SQLite database file
@@ -113,7 +137,6 @@ _Example_: Read SQLite database file
     sqlite> .quit
     ```
 
-
 Finally, we can **analyze binaries using Ghidra** to find hard coded secrets and 
 interesting vulnerabilities.
 
@@ -136,6 +159,6 @@ interesting vulnerabilities.
     * [IoTGoat Project](https://github.com/OWASP/IoTGoat)
     * [Damn Vulnerable Router Firmware (DVRF) v0.3](https://github.com/praetorian-inc/DVRF/tree/master/Firmware)
 
-
+* [The Most Important Linux Files to Protect](https://www.beyondtrust.com/blog/entry/important-linux-files-protect)
 
 *Egon Teiniker, 2023, GPL v3.0*
