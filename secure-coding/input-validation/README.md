@@ -45,18 +45,6 @@ There are different variants of the input validation:
 * We can use the Proxy Design Pattern to add input validation to an 
     existing API. 
 
-## Regular Expressions
-
-Regular expressions (regex) are the key to powerful, flexible, and efficient text processing. Regex are a general notation, which can be used to describe and parse text. 
-
-**A regular expression defines a set of strings**. 
-Using regex, we can verify if a given string is an element of that set or not.
-
-Regex are implemented by finite automata. Any regular expression can be converted into a finite automation that recognizes the language it describes, and vice versa.   
-
-![Regular Expressions Table 1](figures/RegExTable1.png)
-
-![Regular Expressions Table 2](figures/RegExTable2.png)
 
 
 ## References
