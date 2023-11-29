@@ -1,6 +1,5 @@
-#include <stdio.h>
-#include <stdlib.h>
 #include <string.h>
+#include "hex.h"
 
 char *bin2hex(const unsigned char *bin, size_t len)
 {
@@ -63,22 +62,4 @@ size_t hexs2bin(const char *hex, unsigned char **out)
 		(*out)[i] = (b1 << 4) | b2;
 	}
 	return len;
-}
-
-int main(int argc, char **argv)
-{
-	const char    *a = "Test 123! - jklmn";
-	char          *hex;
-	unsigned char *bin;
-	size_t         binlen;
-
-	hex = bin2hex((unsigned char *)a, strlen(a));
-	printf("%sn", hex);
-
-	binlen = hexs2bin(hex, &bin);
-	printf("%.*sn", (int)binlen, (char *)bin);
-
-	free(bin);
-	free(hex);
-	return 0;
 }

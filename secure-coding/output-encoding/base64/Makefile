@@ -8,14 +8,17 @@ all: init run
 init:
 	mkdir -p build
 
-build/base64.o: base64.c
+build/base64.o: base64.c base64.h
 	$(CC) $(CFLAGS) $(INCLUDES) -c base64.c -o build/base64.o
 
-build/base64: init build/base64.o 
-	$(CC) $(CFLAGS) build/base64.o -o build/base64 $(LIBS)
+build/main.o: main.c
+	$(CC) $(CFLAGS) $(INCLUDES) -c main.c -o build/main.o
 
-run: build/base64 
-	build/base64
+build/main: init build/base64.o build/main.o
+	$(CC) $(CFLAGS) build/base64.o build/main.o -o build/main $(LIBS)
+
+run: build/main 
+	build/main
 
 clean:
 	rm -rf build/

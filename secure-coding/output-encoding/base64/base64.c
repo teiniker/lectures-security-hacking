@@ -4,10 +4,8 @@
 #include <stdint.h>
 #include <stdio.h>
 #include <string.h>
-#include <assert.h>
 
-
-int Base64Encode(char *buffer, size_t length, char** b64text) 
+int encode_base64(char *buffer, size_t length, char** b64text) 
 { 
 	BIO *bio, *b64;
 	BUF_MEM *bufferPtr;
@@ -41,7 +39,7 @@ size_t calcDecodeLength(const char* b64input)
 	return (len*3)/4 - padding;
 }
 
-int Base64Decode(char *b64message, char** buffer, size_t* length) 
+int decode_base64(char *b64message, char** buffer, size_t* length) 
 { 
 	BIO *bio, *b64;
 
@@ -55,26 +53,7 @@ int Base64Decode(char *b64message, char** buffer, size_t* length)
 
 	BIO_set_flags(bio, BIO_FLAGS_BASE64_NO_NL); //Do not use newlines to flush buffer
 	*length = BIO_read(bio, *buffer, strlen(b64message));
-	assert(*length == decodeLen); //length should equal decodeLen, else something went horribly wrong
 	BIO_free_all(bio);
 
 	return (0); //success
-}
-
-
-int main() 
-{
-  //Encode To Base64
-  char* base64EncodeOutput, *text="Hello World";
-
-  Base64Encode(text, strlen(text), &base64EncodeOutput);
-  printf("Output (base64): %s\n", base64EncodeOutput);
-
-  //Decode From Base64
-  char* base64DecodeOutput;
-  size_t test;
-  Base64Decode("SGVsbG8gV29ybGQ=", &base64DecodeOutput, &test);
-  printf("Output: %s %lu\n", base64DecodeOutput, test);
-  
-  return(0);
 }
