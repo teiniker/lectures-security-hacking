@@ -1,5 +1,5 @@
 #include <string.h>
-#include "hex.h"
+#include "base16.h"
 
 char *bin2hex(const unsigned char *bin, size_t len)
 {

@@ -1,0 +1,14 @@
+Exercise: Base16 Encoding
+-------------------------------------------------------------------------------
+
+Schreiben Sie ein C Programm, das ein Byte in einen Hex-String (zwei Zeichen) 
+umwandelt.
+
+A) char nibble_to_char(uint8_t nibble)
+    Takes a 4-bit number and converts it to a character [0-9a-f].
+
+B) char *encode_base16(uint8_t byte)
+    Reserves a memory area of 3 bytes on the heap. 
+    Splits the byte into two 4-bit numbers and calls the function nibble_to_char().
+    Store the two characters and a null byte on the heap.
+
