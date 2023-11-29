@@ -1,0 +1,20 @@
+Exercise: Filename (Regular Expression)
+-------------------------------------------------------------------------------
+
+A file name should be validated before further processing in order to avoid path 
+traversal attacks.
+
+A) Regular Expression 
+    Define a regular expression which can validate file names.
+    A filename can contain letters (upper or lower case), numbers and the underscore.
+    The minimum length is one character and the maximum length is 255 characters.
+    The file extension can be between 0 and 3 characters long and can only contain 
+    letters (upper or lower case).
+    Example: Valid filename = "filename.c"
+    Example: Valid filename = "filename"
+    Example: Invalid filename = "../filename.c"
+
+B) bool is_valid_filename(char *filename);
+    Implement this function. 
+    Return "true" if it is a valid file name, otherwise "false".
+
