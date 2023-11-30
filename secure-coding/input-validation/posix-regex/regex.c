@@ -25,11 +25,11 @@ int main()
         fprintf(stderr, "Regex match failed: %s\n", error_message);
         return 1;
     } 
+    regfree(&regex);
     
     printf("Valid mail address: %s\n", input);
 
     // Free the compiled regular expression
-    regfree(&regex);
 
     return 0;
 }
