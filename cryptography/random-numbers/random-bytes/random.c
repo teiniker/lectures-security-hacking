@@ -6,27 +6,26 @@
 
 #define NUM_BYTES 16
 
-void print_as_hex_string(uint8_t *hash, size_t len)
+char* to_hex_string(uint8_t *bytes, size_t len)
 {
-    for(int i = 0; i < len; i++)
+    char *hex_str = malloc(2 * len + 1);
+    char *ptr = hex_str;
+    for (size_t i = 0; i < len; i++) 
     {
-        printf("%02x", hash[i]);
+        sprintf(ptr, "%02x", bytes[i]);
+        ptr += 2; 
     }
+    return hex_str;
 }
 
 int main(void) 
 {
     uint8_t buffer[NUM_BYTES];
+    RAND_bytes(buffer, sizeof(buffer));
 
-    if (RAND_bytes(buffer, sizeof(buffer)) != 1) 
-    {
-        fprintf(stderr, "Error generating random bytes.\n");
-        return EXIT_FAILURE;
-    }
-
-    printf("Generated %d random bytes: ", NUM_BYTES);
-    print_as_hex_string(buffer, NUM_BYTES);
-    printf("\n");
+    char *hex_str = to_hex_string(buffer, NUM_BYTES);
+    printf("hex: %s\n", hex_str);
+    free(hex_str);
 
     return EXIT_SUCCESS;
 }
