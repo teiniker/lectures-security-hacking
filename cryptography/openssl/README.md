@@ -12,8 +12,7 @@ eavesdropping and tampering.
 Debian 11.5 (Bullseye) comes with OpenSSL 1.1.1 pre-installed. Therefore, we don't need 
 to install it separately. 
 
-We can check the installed version of OpenSSL by running the following command in our 
-terminal:
+We can check the installed version of OpenSSL by running the following command in our terminal:
 
 ```
 $ openssl version
@@ -56,3 +55,6 @@ algorithms for your applications.
 
 ## References
 
+* [Homepage: OpenSSL](https://www.openssl.org/)
+
+*Egon Teiniker, 2023, GPL v3.0* 
