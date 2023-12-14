@@ -1,0 +1,28 @@
+Exercise: Password Encryption
+-------------------------------------------------------------------------------
+
+Implement password encryption based on SHA-256 and a 16-byte random salt.
+
+A) void generate_salt(uint8_t salt[16]) 
+    Implement the function "generate_salt()" which gets an empty array with 
+    length 16 and fills it with random bytes.
+
+B) void sha256(uint8_t* data, size_t data_len, uint8_t hash_value[32]) 
+    Implement the "sha256()" function, which calculates a 32 byte hash value 
+    from a byte array of given length ("data_len").
+
+C) void create_hashed_password(const char* password, const uint8_t salt[16], 
+    uint8_t hash[32]) 
+    Implement the "create_hashed_password()" function which receives the 
+    password and salt.
+    The hash value is written to the empty hash array.        
+    The function copies salt and the password together into a byte array and 
+    calculates the hash value from it.
+
+Check its implementation with the "main()" function.
+
+salt: f9af42b008332dfa54e9bcae4c489ff0
+hash: 9437c538c85c199786dd37de5e50d02658cc8f924964191372625f86332538bc
+
+Note that the hash value is different each time due to the newly generated 
+salt (even if the same password is used).

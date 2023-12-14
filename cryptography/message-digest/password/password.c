@@ -34,7 +34,7 @@ void generate_salt(uint8_t salt[16])
     RAND_bytes(salt, 16); 
 }
 
-uint8_t* create_hashed_password(const char* password, const uint8_t salt[16], uint8_t hash[32]) 
+void create_hashed_password(const char* password, const uint8_t salt[16], uint8_t hash[32]) 
 {
     size_t password_len = strlen(password);
     size_t total_len = password_len + 16;
@@ -47,29 +47,27 @@ uint8_t* create_hashed_password(const char* password, const uint8_t salt[16], ui
 
     // Hash the salted password
     sha256(salted_password, total_len, hash);
-
-    return salted_password;
+    free(salted_password);
 }
 
 
 int main(void) 
 {
-    const char* password = "your_password_here";
+    const char* password = "your_password";
     uint8_t salt[16];
     uint8_t hash[32];
 
-    // Generate or retrieve the salt
+    // Generate the salt
     RAND_bytes(salt, 16);
+    char* salt_hex = to_hex_string(salt, 16);
+    printf("salt: %s\n", salt_hex);
 
-    uint8_t* salted_password = create_hashed_password(password, salt, hash);
-
-    char* hex = to_hex_string(salted_password, 32);
-    printf("hex: %s\n", hex);
+    create_hashed_password(password, salt, hash);
+    char* hex = to_hex_string(hash, 32);
+    printf("hash: %s\n", hex);
     free(hex);
     
-    // Free the allocated memory for salted_password
-    free(salted_password);
-
+    // Free the allocated memory 
+    free(salt_hex);
     return EXIT_SUCCESS;
 }
-
