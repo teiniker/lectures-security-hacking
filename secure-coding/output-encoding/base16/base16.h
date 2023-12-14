@@ -2,8 +2,9 @@
 #define _HEX_H_
 
 #include <stdlib.h>
+#include <stdint.h>
 
-extern char *bin2hex(const unsigned char *bin, size_t len);
-extern size_t hexs2bin(const char *hex, unsigned char **out);
+char* byte_array_to_hex_string(const uint8_t* bytes, size_t size); 
+uint8_t* hex_string_to_byte_array(const char* hex_string, size_t *size); 
 
 #endif // _HEX_H_

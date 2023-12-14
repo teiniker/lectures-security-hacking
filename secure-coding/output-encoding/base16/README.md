@@ -14,6 +14,7 @@ It can also convert a hex dump back to its original binary form.
 ```
 $ echo "Security&Hacking" | xxd -p
 5365637572697479264861636b696e670a
+U2VjdXJpdHkmSGFja2luZwo=
 ```
 
 ```
