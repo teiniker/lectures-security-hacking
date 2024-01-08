@@ -7,16 +7,12 @@
 #include <encoding/hex.h>
 
 uint8_t* load_binary_file(const char *filename, size_t *size);
-uint8_t *encrypt(uint8_t *key, uint8_t *iv, uint8_t *data, int data_len, int *ciphertext_len);
+uint8_t *encrypt(char *key_string, char *iv_string, uint8_t *data, int data_len, int *ciphertext_len);
 
 int main() 
 {
-    // Generate a random key and IV
-    uint8_t key[EVP_MAX_KEY_LENGTH];
-    uint8_t iv[EVP_MAX_IV_LENGTH];
-    RAND_bytes(key, sizeof(key)); 
-    RAND_bytes(iv, sizeof(iv));
-    
+    char *key_string ="9af28734437d8ae34f343d61c682bf2c2a8051644e4323628b277286d3b25617fde17a70ce019ec9f94a12d98f9cc2c8e07b95a93595854e2f31e99fc0fb3476";
+    char *iv_string = "91b2da070a7ae4ca44e0915ad6abed8b";    
 
     // Encrypt the input string
     char *filename = "tux.png";
@@ -25,11 +21,12 @@ int main()
     printf("Load: %s [%ld bytes]\n", filename, bytes_in_file);
 
     int ciphertext_len;
-    uint8_t *ciphertext = encrypt(key, iv, data, bytes_in_file, &ciphertext_len);
+    uint8_t *ciphertext = encrypt(key_string, iv_string, data, bytes_in_file, &ciphertext_len);
 
      // Print results
     char* hex_ciphertext = to_hex_string(ciphertext, ciphertext_len);
     printf("Encrypted: %s\n", hex_ciphertext);
+    // Encrypted: 7732c5224017ae7dd54edbf2f10a5caa94...
     free(hex_ciphertext);
     free(ciphertext);
     free(data);
@@ -79,8 +76,14 @@ uint8_t* load_binary_file(const char *filename, size_t *size)
     return buffer;
 }
 
-uint8_t *encrypt(uint8_t *key, uint8_t *iv, uint8_t *data, int data_len, int *ciphertext_len)
+uint8_t *encrypt(char *key_string, char *iv_string, uint8_t *data, int data_len, int *ciphertext_len)
 {
+    size_t key_len = strlen(key_string);
+    uint8_t* key = hex_string_to_byte_array(key_string, &key_len);      
+
+    size_t iv_len = strlen(key_string);
+    uint8_t* iv = hex_string_to_byte_array(key_string, &iv_len);      
+
     EVP_CIPHER_CTX *ctx = EVP_CIPHER_CTX_new();
     EVP_EncryptInit_ex(ctx, EVP_aes_128_ctr(), NULL, key, iv);
 
@@ -95,6 +98,8 @@ uint8_t *encrypt(uint8_t *key, uint8_t *iv, uint8_t *data, int data_len, int *ci
 
     // Clean up the encryption context
     EVP_CIPHER_CTX_free(ctx);
+    free(key);
+    free(iv);
 
     return encrypted;
 }
