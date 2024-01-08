@@ -1,0 +1,16 @@
+Exercise: HMAC API 
+-------------------------------------------------------------------------------
+
+Given the "hmac" example, refactor the code in the following ways:
+
+A) uint8_t *calculate_fingerprint(char* key_string, uint8_t* data, size_t size, size_t *result_len);
+Move the related code for calculating the HMAC into a function called "calculate_fingerprint()".
+Use the given "main()" function to test your implementation.
+=> HMAC: dcdb1aacc7857fbc8bb8cb60a015ae7e131f5fd7180d6bd2f8508cdb21ffa658
+
+B) Fix Memory Management 
+The "hmac" example has some bugs regarding memory management - it creates memory leaks!!
+Fix the memory management in your implementation and use valgring to verify your implementation:  
+$ valgrind ./build/hmac-api
+=> All heap blocks were freed -- no leaks are possible
+
