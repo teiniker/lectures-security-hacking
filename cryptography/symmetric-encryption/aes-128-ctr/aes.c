@@ -9,12 +9,12 @@
 int main() 
 {
     // Initialize variables
-    unsigned char key[EVP_MAX_KEY_LENGTH];
-    unsigned char iv[EVP_MAX_IV_LENGTH];
+    uint8_t key[EVP_MAX_KEY_LENGTH];
+    uint8_t iv[EVP_MAX_IV_LENGTH];
     char *input_string = "This is a test string for encryption";
     int len = strlen(input_string);
-    unsigned char encrypted[len];
-    unsigned char decrypted[len];
+    uint8_t encrypted[len];
+    uint8_t decrypted[len];
 
     // Generate a random key and IV
     RAND_bytes(key, sizeof(key)); 
@@ -56,9 +56,8 @@ int main()
     decrypted[plaintext_len] = '\0';
 
     // Print results
-    printf("Encrypted: ");
-    for (int i = 0; i < ciphertext_len; i++) printf("%02x", encrypted[i]);
-    printf("\nDecrypted: %s\n", decrypted);
+    printf("Encrypted: %s\n", to_hex_string(encrypted, ciphertext_len));
+    printf("Decrypted: %s\n", decrypted);
 
     return 0;
 }
