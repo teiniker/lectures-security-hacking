@@ -1,0 +1,17 @@
+Exercise: File Encryption
+-------------------------------------------------------------------------------
+
+We want to encrypt existing binary files stored in the file system.
+Thus, we have to implement / reuse the following functions:
+
+A) uint8_t* load_binary_file(const char *filename, size_t *size);
+Load a given file into a byte array on the heap.
+
+B) uint8_t *encrypt(char *key_string, char *iv_string, uint8_t *data, int data_len, int *ciphertext_len);
+Encrypt the byte array with the given "key" and "iv".
+
+Use the given "main()" function to test your implementations.
+=> Encrypted: 7732c5224017ae7dd54edbf2f10a5caa94...
+
+C) Memory Management 
+Make sure that your implementation is free of meory leaks!

@@ -45,7 +45,7 @@ uint8_t* decrypt(uint8_t *key, uint8_t *iv, uint8_t *encrypted_data, int encrypt
     return decrypted;
 }
 
-int main() 
+int main(void) 
 {
     // Generate a random key and IV
     uint8_t key[EVP_MAX_KEY_LENGTH];
