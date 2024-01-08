@@ -20,11 +20,13 @@ int main(void)
     // Calculate the HMAC
     size_t result_len;
     uint8_t *result = calculate_fingerprint(key_string, (uint8_t*) data, strlen(data), &result_len);
-    printf("HMAC: %s\n", to_hex_string(result, result_len));
+    char *result_string = to_hex_string(result, result_len);
+    printf("HMAC: %s\n", result_string);
 
     // Clean up
     free(result);
-    
+    free(result_string);
+
     return EXIT_SUCCESS;
 }
 
@@ -35,5 +37,8 @@ uint8_t *calculate_fingerprint(char* key_string, uint8_t* data, size_t size, siz
 
     uint8_t *result = (uint8_t*)malloc(EVP_MAX_MD_SIZE);
     HMAC(EVP_sha256(), key, key_len, data, size, result, (unsigned int *)result_len);
+
+    free(key);
+
     return result;
 }
