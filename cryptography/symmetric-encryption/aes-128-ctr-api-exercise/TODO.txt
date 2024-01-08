@@ -1,0 +1,16 @@
+Exercise: Encryption / Decryption API 
+-------------------------------------------------------------------------------
+
+Given the "aes-128-ctr" example, refactor the code in the following ways:
+
+A) uint8_t *encrypt(uint8_t *key, uint8_t *iv, uint8_t *data, int data_len, int *ciphertext_len)
+Move the code used to encrypt a byte array into a function called "encrypt()".
+
+
+B) uint8_t* decrypt(uint8_t *key, uint8_t *iv, uint8_t *encrypted_data, int encrypted_len, int *plaintext_len)
+Move the code needed to encrypt the cipher text into a function called "decrypt()".
+
+Use the "main()" function to test your implementations.
+
+C) Memory Management 
+Make sure that your implementation is free of meory leaks!
