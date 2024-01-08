@@ -1,0 +1,23 @@
+Exercise: HMAC - Fingerprinting Files
+-------------------------------------------------------------------------------
+
+A HMAC can be used to generatefingerprints of files in the file system.
+
+A) uint8_t *calculate_fingerprint(char* key_string, uint8_t* data, size_t size, size_t *result_len);
+Reuse the "calculate_fingerprint()" function from the "hmac-api" example.
+
+B) uint8_t* load_binary_file(const char *filename, size_t *size); 
+Load a binary file into a uint8_t array.
+
+Testyour implementations with the "main()" function which loads the "tux.png"
+file and calculates the fingerprint of this file using your functions.
+
+=> Load: tux.png [11913 bytes]
+   HMAC: c9419468393fda411b03ce10b6e1ba47bf4716d31f190873964f063eec641a08
+
+C) Memory Management 
+Make sure that your implementations don't create memory leaks!!
+Also check the "main()" function ;-)
+
+=> All heap blocks were freed -- no leaks are possible
+
