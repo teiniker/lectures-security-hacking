@@ -7,11 +7,13 @@
 #include <encoding/hex.h>
 
 
-uint8_t *encrypt(EVP_CIPHER_CTX *ctx, uint8_t *data, int data_len, int *ciphertext_len)
+uint8_t *encrypt(uint8_t *key, uint8_t *iv, uint8_t *data, int data_len, int *ciphertext_len)
 {
-    uint8_t *encrypted = (uint8_t *)malloc(data_len);
+    EVP_CIPHER_CTX *ctx = EVP_CIPHER_CTX_new();
+    EVP_EncryptInit_ex(ctx, EVP_aes_128_ctr(), NULL, key, iv);
 
     // Encrypt the input string
+    uint8_t *encrypted = (uint8_t *)malloc(data_len);
     EVP_EncryptUpdate(ctx, encrypted, ciphertext_len, data, data_len);
    
     // Finalize the encryption
@@ -25,10 +27,12 @@ uint8_t *encrypt(EVP_CIPHER_CTX *ctx, uint8_t *data, int data_len, int *cipherte
     return encrypted;
 }
 
-uint8_t* decrypt(EVP_CIPHER_CTX *ctx, uint8_t *encrypted_data, int encrypted_len, int *plaintext_len)
+uint8_t* decrypt(uint8_t *key, uint8_t *iv, uint8_t *encrypted_data, int encrypted_len, int *plaintext_len)
 {
-    uint8_t *decrypted = (uint8_t *)malloc(encrypted_len);
+    EVP_CIPHER_CTX *ctx = EVP_CIPHER_CTX_new();
+    EVP_DecryptInit_ex(ctx, EVP_aes_128_ctr(), NULL, key, iv);
 
+    uint8_t *decrypted = (uint8_t *)malloc(encrypted_len);
     EVP_DecryptUpdate(ctx, decrypted, plaintext_len, encrypted_data, encrypted_len);
 
     int padding_len;
@@ -49,21 +53,15 @@ int main()
     RAND_bytes(key, sizeof(key)); 
     RAND_bytes(iv, sizeof(iv));
 
-    // Initialize the encryption operation
-    EVP_CIPHER_CTX *ctx = EVP_CIPHER_CTX_new();
-    EVP_EncryptInit_ex(ctx, EVP_aes_128_ctr(), NULL, key, iv);
-
+    // Encrypt the input string
     char *input_string = "This is a test string for encryption";
     int len = strlen(input_string);
     int ciphertext_len;
-    uint8_t *ciphertext = encrypt(ctx, (uint8_t *)input_string, len, &ciphertext_len);
-
+    uint8_t *ciphertext = encrypt(key, iv, (uint8_t *)input_string, len, &ciphertext_len);
 
     // Decrypt the encrypted string
-    ctx = EVP_CIPHER_CTX_new();
-    EVP_DecryptInit_ex(ctx, EVP_aes_128_ctr(), NULL, key, iv);
     int plaintext_len;
-    uint8_t *plaintext = decrypt(ctx, ciphertext, ciphertext_len, &plaintext_len);
+    uint8_t *plaintext = decrypt(key, iv, ciphertext, ciphertext_len, &plaintext_len);
 
     // Print results
     plaintext[plaintext_len] = '\0';
