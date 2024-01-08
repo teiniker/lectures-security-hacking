@@ -7,7 +7,7 @@ char* to_hex_string(uint8_t *bytes, size_t len);
 
 int main(void) 
 {
-    uint8_t data[] = "Hello, World!";   
+    uint8_t data[] = "Hello, World";   
     uint8_t hash[32];  // SHA-256 Hash value length = 32 bytes
 
     // Calculate hash value: data -> hash
@@ -19,7 +19,7 @@ int main(void)
     EVP_MD_CTX_free(ctx);
 
     char* hash_str = to_hex_string(hash, 32);
-    printf("hex: %s\n", hash_str);
+    printf("hash value: %s\n", hash_str);
     free(hash_str);
     
     return EXIT_SUCCESS;

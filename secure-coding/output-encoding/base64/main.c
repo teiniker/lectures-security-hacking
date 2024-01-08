@@ -3,7 +3,7 @@
 #include <assert.h>
 #include "base64.h"
 
-int main() 
+int main(void) 
 {
   // Encode to Base64
   char *base64EncodeOutput;

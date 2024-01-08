@@ -21,7 +21,7 @@ char* to_hex_string(uint8_t *bytes, size_t len)
 int main(void) 
 {
     uint8_t buffer[NUM_BYTES];
-    RAND_bytes(buffer, sizeof(buffer));
+    RAND_bytes(buffer, NUM_BYTES);
 
     char *hex_str = to_hex_string(buffer, NUM_BYTES);
     printf("hex: %s\n", hex_str);

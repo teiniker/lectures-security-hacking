@@ -12,14 +12,14 @@ init:
 build/hex.o: $(UTILS)/encoding/hex.h $(UTILS)/encoding/hex.c
 	$(CC) $(CFLAGS) $(INCLUDES) -c $(UTILS)/encoding/hex.c -o build/hex.o
 
-build/hmac.o: hmac.c
-	$(CC) $(CFLAGS) $(INCLUDES) -c hmac.c -o build/hmac.o
+build/aes.o: aes.c
+	$(CC) $(CFLAGS) $(INCLUDES) -c aes.c -o build/aes.o
 
-build/hmac: build/hex.o build/hmac.o 
-	$(CC) $(CFLAGS) build/hmac.o build/hex.o -o build/hmac $(LIBS)
+build/aes: build/hex.o build/aes.o 
+	$(CC) $(CFLAGS) build/aes.o build/hex.o -o build/aes $(LIBS)
 
-run: build/hmac 
-	build/hmac
+run: build/aes 
+	build/aes
 
 clean:
 	rm -rf build/
