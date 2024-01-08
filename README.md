@@ -33,14 +33,16 @@ The following topics will be covered:
             * [Introduction](secure-coding/environment/introduction/)
             * [Memory Management](secure-coding/environment/memory/)
         * [Input Validation](secure-coding/input-validation/)
+        * [Output Encoding](secure-coding/output-encoding/)
         * [Error Handling](secure-coding/error-handling/)   
         
     * Cryptography in Practice
         * [OpenSSL](cryptography/openssl/)
         * [Random Numbers](cryptography/random-numbers/)
         * [Message Digest](cryptography/message-digest/)
-        * Message Authentication Code
-        * Symmetric Encryption 
+        * [Message Authentication Code](cryptography/message-authentication-code/)
+        * [Symmetric Encryption](cryptography/symmetric-encryption/) 
+
 
 If you need a refresher in C/C++ programming, feel free to use the following repositories:
 
@@ -48,4 +50,4 @@ If you need a refresher in C/C++ programming, feel free to use the following rep
 
 * [Embedded Computing by Example](https://github.com/teiniker/teiniker-lectures-embeddedcomputing)
 
-*Egon Teiniker, 2023, GPL v3.0* 
+*Egon Teiniker, 2023-2024, GPL v3.0* 
