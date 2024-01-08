@@ -13,6 +13,7 @@ int read_file(char* filename)
     char line[256];    
     FILE *fp;
 
+    // Input validation
     if(filename == NULL || strlen(filename) < 4)
         return ERROR_INVALID_ARGUMENT;
 
