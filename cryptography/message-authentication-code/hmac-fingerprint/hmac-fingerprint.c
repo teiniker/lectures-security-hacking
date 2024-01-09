@@ -23,7 +23,7 @@ int main(void)
 
     // Calculate the HMAC
     size_t result_len;
-    uint8_t *result = calculate_fingerprint(key_string, (uint8_t*) data, bytes_in_file, &result_len);
+    uint8_t *result = calculate_fingerprint(key_string, data, bytes_in_file, &result_len);
     char *result_string = to_hex_string(result, result_len);
     printf("HMAC: %s\n", result_string);
     free(result_string);
@@ -78,7 +78,7 @@ uint8_t* load_binary_file(const char *filename, size_t *size)
 
 uint8_t *calculate_fingerprint(char* key_string, uint8_t* data, size_t size, size_t *result_len)
 {
-    size_t key_len = strlen(key_string);
+    size_t key_len;
     uint8_t* key = hex_string_to_byte_array(key_string, &key_len);      
 
     uint8_t *result = (uint8_t*)malloc(EVP_MAX_MD_SIZE);

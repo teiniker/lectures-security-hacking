@@ -1,7 +1,7 @@
 Exercise: HMAC - Fingerprinting Files
 -------------------------------------------------------------------------------
 
-A HMAC can be used to generatefingerprints of files in the file system.
+A HMAC can be used to generate fingerprints of files in the file system.
 
 A) uint8_t *calculate_fingerprint(char* key_string, uint8_t* data, size_t size, size_t *result_len);
 Reuse the "calculate_fingerprint()" function from the "hmac-api" example.

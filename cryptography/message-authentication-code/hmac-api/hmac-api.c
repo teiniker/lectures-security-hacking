@@ -32,7 +32,7 @@ int main(void)
 
 uint8_t *calculate_fingerprint(char* key_string, uint8_t* data, size_t size, size_t *result_len)
 {
-    size_t key_len = strlen(key_string);
+    size_t key_len;
     uint8_t* key = hex_string_to_byte_array(key_string, &key_len);      
 
     uint8_t *result = (uint8_t*)malloc(EVP_MAX_MD_SIZE);
