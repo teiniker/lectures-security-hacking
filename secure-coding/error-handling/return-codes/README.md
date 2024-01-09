@@ -28,10 +28,11 @@ If we have an **error condition** in your program and we are coming out then we 
 a status `EXIT_FAILURE` which is defined as `-1`.
 
 ## References
+* [Handling Errors in C/Unix (perror, strerror, errno)](https://youtu.be/IZiUT-ipnj0?si=17fVKI_6jj7Tj963)
 
 * [C - Error Handling](https://www.tutorialspoint.com/cprogramming/c_error_handling.htm)
 
 * [errno.h](https://www2.hs-fulda.de/~klingebiel/c-stdlib/sys.errno.h.htm)
 
 
-*Egon Teiniker, 2020-2022, GPL v3.0* 
+*Egon Teiniker, 2020-2024, GPL v3.0* 
