@@ -78,10 +78,10 @@ uint8_t* load_binary_file(const char *filename, size_t *size)
 
 uint8_t *encrypt(char *key_string, char *iv_string, uint8_t *data, int data_len, int *ciphertext_len)
 {
-    size_t key_len = strlen(key_string);
+    size_t key_len;
     uint8_t* key = hex_string_to_byte_array(key_string, &key_len);      
 
-    size_t iv_len = strlen(key_string);
+    size_t iv_len;
     uint8_t* iv = hex_string_to_byte_array(key_string, &iv_len);      
 
     EVP_CIPHER_CTX *ctx = EVP_CIPHER_CTX_new();
