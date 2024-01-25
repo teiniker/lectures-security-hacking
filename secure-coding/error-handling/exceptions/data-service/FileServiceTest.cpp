@@ -1,7 +1,7 @@
 #include <CppUTest/TestHarness.h>
 #include <CppUTest/CommandLineTestRunner.h>
 
-#include <DataService.h>
+#include "DataService.h"
 
 #include <string>
 #include <vector>
@@ -17,7 +17,7 @@ TEST_GROUP(FileServiceTestGroup)
 
 TEST(FileServiceTestGroup, DataFileTest)
 {
-    FileService* fs = new FileService("./test/data.txt");
+    FileService* fs = new FileService("./data.txt");
     DataService* ds = new DataService(fs);
     
     vector<int> data = ds->readData();
@@ -55,7 +55,7 @@ TEST(FileServiceTestGroup, InvalidDataFileTest)
 
 TEST(FileServiceTestGroup, ReadFileTest)
 {
-    FileService service = FileService("./test/data.txt");
+    FileService service = FileService("./data.txt");
     string content = service.readFile();
     
     // Verify

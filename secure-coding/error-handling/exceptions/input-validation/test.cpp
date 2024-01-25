@@ -1,7 +1,8 @@
 #include <CppUTest/TestHarness.h>
 #include <CppUTest/CommandLineTestRunner.h>
 
-#include <User.h>
+#include <iostream>
+#include "user.h"
 
 using namespace std;
 
@@ -33,7 +34,15 @@ TEST(UserTestGroup, ConstructorTest)
 TEST(UserTestGroup, InvalidIdTest)
 {
     // Verify
-    CHECK_THROWS(std::invalid_argument, User(-1, "homer", "c3R1ZGVudA"));
+    try
+    {
+        User(-1, "homer", "c3R1ZGVudA");
+        FAIL("Expected exception not thrown");
+    }
+    catch(const std::invalid_argument& e)
+    {
+        printf("Exception: %s\n", e.what());
+    }
 }
 
 TEST(UserTestGroup, InvalidUsernameTooShortTest)
@@ -48,6 +57,7 @@ TEST(UserTestGroup, InvalidPasswordTest)
     // Verify
     CHECK_THROWS(std::invalid_argument, User(1, "homer", "c3R1ZGVud"));
 }
+
 
 int main(int ac, char** av)
 {
