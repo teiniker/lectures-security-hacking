@@ -4,8 +4,8 @@
     * [Ghidra](setup/Ghidra.md)
 
   * Analyzing C Binaries
-    * [Static Analysis](reverse-engineering/analysis-static/)
-    * [Dynamic Analysis](reverse-engineering/analysis-dynamic/)
+    * [Static Analysis](analysis-static/)
+    * [Dynamic Analysis](analysis-dynamic/)
 
 ## References
 * Jon Erickson. **Hacking - The Art of Exploitation**. No Starch Press, 2nd Edition, 2008
