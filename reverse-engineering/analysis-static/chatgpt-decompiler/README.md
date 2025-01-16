@@ -1,9 +1,10 @@
 # Decompiling Assembly Code with ChatGPT
 
-## ChatGPT Prompt
+## ChatGPT o1 Prompt
 
-```
-Decompile the given assembly code into C source code: 
+Decompile the given assembly code into C source code:
+
+``` 
                     ********************************************
                     *                 FUNCTION                 *
                     ********************************************
